@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "Switzer";
+  src: url(assets/Switzer-Regular.woff), url(assets/Switzer-Regular.woff2);
+}
+
+@font-face {
+  font-family: "Switzer Bold";
+  src: url(assets/Switzer-Bold.woff), url(assets/Switzer-Bold.woff2);
+}
+
+body {
+  /* base styling */
+  /*   margin: 0; */
+  margin: 0;
+  /* apply local font */
+  font-family: "Switzer";
+
+  /* typogrpahy */
+  font-size: 1.25vm;
+  line-height: 1.15em;
+  overflow-x: hidden;
+}
+
+article h1 {
+  font-family: "Switzer Bold";
+}
+
+/* Nav Menu */
+nav {
+  background: lightgray;
+  width: 100vw;
+  /*   left: 20px; */
+  /* positioning */
+  position: fixed;
+  top: 0;
+  /*   height: 100vh; */
+
+  /*  alignment  */
+  display: flex;
+  flex-direction: row;
+  /*   justify-content: center; */
+}
+
+/* Nav Links */
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 5px 32px 5px 10px;
+}
+
+nav a:hover {
+  color: black;
+}
+
+/* Main : Hide Menu */
+main {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  /* x translate matches width of navigation */
+  transform: translate(0px, 0px);
+  /* animate with transition */
+  transition: transform 0.25s;
+}
+
+/* Main Content : Show Menu */
+main.open {
+  transform: translate(0, 35px);
+}
+
+/* Menu Button */
+a.toggle-nav {
+  display: inline-block;
+  padding-top: 1em;
+  text-decoration: none;
+  color: black;
+}
+
+/* Menu Button Icon */
+a.toggle-nav img {
+  vertical-align: middle;
+}
+
+footer {
+  z-index: 10;
+  display: flex;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Mobile 
+  0 to 26em (416 pixels)
+*/
+@media only screen and (min-width: 0) {
+  /* diagnostic styling  */
+/*   main {
+    background-color: red;
+  } */
+
+  main.open {
+    transform: translate(0, 120px);
+  } 
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+  }
+    h1:before {
+    content: 'Mobile';
+  }
+}
+
+/* Tablet 
+  26em (416 pixels) to 72em (1,152 pixels)
+*/
+@media only screen and (min-width: 26em) {
+  /* diagnostic styling  */
+/*   main {
+    background-color: green;
+  } */
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+  }
+
+  main.open {
+    transform: translate(0, 50px);
+  }
+  
+      h1:before {
+    content: 'Tablet';
+  }
+}
+
+/* Desktop 
+   72em (1,152 pixels) to 90em (1440 pixels)
+*/
+@media screen and (min-width: 72em) {
+  /* diagnostic styling  */
+  main {
+    background: white;
+  }
+    h1:before {
+    content: 'Desktop';
+  }
+}
